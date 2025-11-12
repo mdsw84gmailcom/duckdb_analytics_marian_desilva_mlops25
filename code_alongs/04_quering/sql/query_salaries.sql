@@ -26,3 +26,8 @@ SELECT
 FROM
     data_jobs;
 
+-- unique -> DISTINCT
+SELECT DISTINCT
+    employment_type
+FROM
+    data_jobs;
