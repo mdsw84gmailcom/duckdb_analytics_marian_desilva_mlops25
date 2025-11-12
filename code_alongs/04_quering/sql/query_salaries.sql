@@ -31,3 +31,9 @@ SELECT DISTINCT
     employment_type
 FROM
     data_jobs;
+
+-- unique -> DISTINCT
+SELECT DISTINCT
+    experience_level
+FROM
+    data_jobs;
