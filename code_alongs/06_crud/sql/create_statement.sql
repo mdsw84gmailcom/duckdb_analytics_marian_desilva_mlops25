@@ -21,7 +21,7 @@ SELECT
 FROM
     pg_catalog.pg_sequences;
 
--- tables for each glossary table 
+-- create tables for each glossary table 
 CREATE TABLE
     IF NOT EXISTS database.sql (
         id INTEGER DEFAULT nextval ('id_sql_sequence'),
