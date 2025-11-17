@@ -3,13 +3,18 @@ SELECT
 FROM
     programming.python;
 
--- oops I inserted the data twice, lets remove all duplicates 
-SELECT
-    *
+FROM
+    programming.python;
+
+FROM
+    database.sql;
+
 FROM
     database.duckdb;
 
 SELECT
     *
 FROM
-    database.sql;
+    database.duckdb
+WHERE
+    id > 7;
