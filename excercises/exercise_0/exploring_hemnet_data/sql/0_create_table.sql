@@ -4,7 +4,5 @@ CREATE TABLE
         SELECT
             *
         FROM
-            read_csv_auto (
-                'exercises/exercise_0/exploring_hemnet_data/data/hemnet.csv'
-            )
+            read_csv_auto ('data/hemnet.csv')
     );
