@@ -30,3 +30,9 @@ VALUES
     (2, 3, 'Weekly', 'Partial Sun'),
     (3, 4, 'Biweekly', 'Full Sun'),
     (4, 6, 'Daily', 'Shade');
+
+FROM
+    plants;
+
+FROM
+    plant_care;
