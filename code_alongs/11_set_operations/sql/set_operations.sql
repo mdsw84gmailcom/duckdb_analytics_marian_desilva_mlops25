@@ -43,3 +43,15 @@ SELECT
     amount
 FROM
     synthetic.sales_feb;
+
+SELECT
+    product_name,
+    amount
+FROM
+    synthetic.sales_jan
+EXCEPT
+SELECT
+    product_name,
+    amount
+FROM
+    synthetic.sales_feb;
