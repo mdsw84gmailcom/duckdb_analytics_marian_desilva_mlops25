@@ -21,3 +21,34 @@ FROM
 -- plays in movies: academy dinosaur, anoconda confessions, ...
 FROM
     actor;
+
+-- bridge table between film and category
+-- it holds film_id and category_id
+FROM
+    film_category;
+
+FROM
+    category;
+
+-- alias, ett kortare sätt att göra alias utan AS
+SELECT
+    *
+FROM
+    customer c;
+
+SELECT
+    'customer' AS type,
+    c.first_name || ' ' || c.last_name AS name
+FROM
+    customer c;
+
+-- all customers firstname starting with B
+SELECT
+    'customer' AS type,
+    c.first_name || ' ' || c.last_name AS name
+FROM
+    customer c
+WHERE
+    c.first_name ILIKE 'b%';
+
+-- continue with your EDA, there is a lot of things to explore
