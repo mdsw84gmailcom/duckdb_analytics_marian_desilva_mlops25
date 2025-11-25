@@ -46,3 +46,16 @@ SELECT
     company_size
 FROM
     salaries_raw;
+
+-- add a new column
+ALTER TABLE cleaned_salaries
+ADD COLUMN employment_type_clean TEXT;
+
+UPDATE cleaned_salaries
+SET
+    employment_type_clean = CASE
+        WHEN employment_type = 'CT' THEN 'Contract'
+        WHEN employment_type = 'FL' THEN 'Freelance'
+        WHEN employment_type = 'PT' THEN 'Part time'
+        WHEN employment_type = 'FT' THEN 'Full time'
+    END;
