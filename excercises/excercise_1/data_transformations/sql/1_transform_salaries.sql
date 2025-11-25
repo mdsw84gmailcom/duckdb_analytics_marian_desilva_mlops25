@@ -22,3 +22,12 @@ SELECT DISTINCT
     END AS company_size_clean
 FROM
     salaries_raw;
+
+-- test SEK converting (yearly)
+SELECT
+    salary_in_usd,
+    salary_in_usd * 11 AS salary_annual_sek
+FROM
+    salaries_raw
+LIMIT
+    10;
