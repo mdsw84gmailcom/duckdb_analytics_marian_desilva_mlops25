@@ -31,3 +31,18 @@ FROM
     salaries_raw
 LIMIT
     10;
+
+-- create transformed table
+DROP TABLE IF EXISTS cleaned_salaries;
+
+CREATE TABLE
+    cleaned_salaries AS
+SELECT
+    experience_level,
+    employment_type,
+    job_title,
+    salary_in_usd,
+    remote_ratio,
+    company_size
+FROM
+    salaries_raw;
