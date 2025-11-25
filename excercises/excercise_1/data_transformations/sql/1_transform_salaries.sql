@@ -47,7 +47,7 @@ SELECT
 FROM
     salaries_raw;
 
--- add a new column
+-- add new columns
 ALTER TABLE cleaned_salaries
 ADD COLUMN employment_type_clean TEXT;
 
@@ -58,4 +58,15 @@ SET
         WHEN employment_type = 'FL' THEN 'Freelance'
         WHEN employment_type = 'PT' THEN 'Part time'
         WHEN employment_type = 'FT' THEN 'Full time'
+    END;
+
+ALTER TABLE cleaned_salaries
+ADD COLUMN company_size_clean TEXT;
+
+UPDATE cleaned_salaries
+SET
+    company_size_clean = CASE
+        WHEN company_size = 'S' THEN 'Small'
+        WHEN company_size = 'M' THEN 'Medium'
+        WHEN company_size = 'L' THEN 'Large'
     END;
