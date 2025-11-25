@@ -214,4 +214,5 @@ __marimo__/
 *.db
 
 
-
+# markdown files
+*.md
