@@ -70,3 +70,10 @@ SET
         WHEN company_size = 'M' THEN 'Medium'
         WHEN company_size = 'L' THEN 'Large'
     END;
+
+ALTER TABLE cleaned_salaries
+ADD COLUMN salary_monthly_sek DOUBLE;
+
+UPDATE cleaned_salaries
+SET
+    salary_monthly_sek = salary_annual_sek / 12;
