@@ -80,3 +80,11 @@ ORDER BY
     median_salary DESC;
 
 -- h) Feel free to explore other things
+SELECT
+    *
+FROM
+    cleaned_salaries
+ORDER BY
+    salary_monthly_sek DESC
+LIMIT
+    20;
