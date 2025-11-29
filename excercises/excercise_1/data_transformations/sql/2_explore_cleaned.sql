@@ -7,6 +7,11 @@ WHERE
     job_title = 'Data Engineer';
 
 -- b) Count number of unique job titles in total.
+SELECT
+    COUNT(DISTINCT job_title)
+FROM
+    cleaned_salaries;
+
 -- c) Find out how many jobs that goes into each salary level.
 -- d) Find out the median and mean salaries for each seniority levels.
 -- e) Find out the top earning job titles based on their median salaries and how much they earn.
