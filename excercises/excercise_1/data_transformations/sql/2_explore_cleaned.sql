@@ -36,6 +36,18 @@ ORDER BY
     median_salary DESC;
 
 -- e) Find out the top earning job titles based on their median salaries and how much they earn.
+SELECT
+    job_title,
+    MEDIAN (salary_monthly_sek) AS median_salary
+FROM
+    cleaned_salaries
+GROUP BY
+    job_title
+ORDER BY
+    median_salary DESC
+LIMIT
+    10;
+
 -- f) How many percentage of the jobs are fully remote, 50 percent remote and fully not remote.
 -- g) Pick out a job title of interest and figure out if company size affects the salary. Make a simple analysis as a comprehensive one requires causality investigations which are much harder to find.
 -- h) Feel free to explore other things
