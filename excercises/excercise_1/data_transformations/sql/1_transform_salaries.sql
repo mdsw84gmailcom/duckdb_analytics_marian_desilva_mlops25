@@ -86,3 +86,15 @@ ADD COLUMN salary_monthly_sek DOUBLE;
 UPDATE cleaned_salaries
 SET
     salary_monthly_sek = salary_annual_sek / 12;
+
+ALTER TABLE cleaned_salaries
+ADD COLUMN salary_level TEXT;
+
+UPDATE cleaned_salaries
+SET
+    salary_level = CASE
+        WHEN salary_monthly_sek < 30000 THEN 'low'
+        WHEN salary_monthly_sek < 55000 THEN 'medium'
+        WHEN salary_monthly_sek < 90000 THEN 'high'
+        ELSE 'insanely_high'
+    END;
