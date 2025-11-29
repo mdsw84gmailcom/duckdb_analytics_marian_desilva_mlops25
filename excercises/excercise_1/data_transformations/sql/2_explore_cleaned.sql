@@ -24,6 +24,17 @@ ORDER BY
     count DESC;
 
 -- d) Find out the median and mean salaries for each seniority levels.
+SELECT
+    experience_level_clean,
+    MEDIAN (salary_monthly_sek) AS median_salary,
+    AVG(salary_monthly_sek) AS mean_salary
+FROM
+    cleaned_salaries
+GROUP BY
+    experience_level_clean
+ORDER BY
+    median_salary DESC;
+
 -- e) Find out the top earning job titles based on their median salaries and how much they earn.
 -- f) How many percentage of the jobs are fully remote, 50 percent remote and fully not remote.
 -- g) Pick out a job title of interest and figure out if company size affects the salary. Make a simple analysis as a comprehensive one requires causality investigations which are much harder to find.
