@@ -65,4 +65,18 @@ ORDER BY
     remote_ratio DESC;
 
 -- g) Pick out a job title of interest and figure out if company size affects the salary. Make a simple analysis as a comprehensive one requires causality investigations which are much harder to find.
+SELECT
+    company_size_clean,
+    MEDIAN (salary_monthly_sek) AS median_salary,
+    AVG(salary_monthly_sek) AS mean_salary,
+    COUNT(*) AS n
+FROM
+    cleaned_salaries
+WHERE
+    job_title = 'Data Engineer'
+GROUP BY
+    company_size_clean
+ORDER BY
+    median_salary DESC;
+
 -- h) Feel free to explore other things
