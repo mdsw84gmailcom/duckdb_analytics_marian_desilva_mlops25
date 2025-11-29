@@ -98,3 +98,19 @@ SET
         WHEN salary_monthly_sek < 90000 THEN 'high'
         ELSE 'insanely_high'
     END;
+
+-- clean standardsin job title
+ALTER TABLE cleaned_salaries
+ADD COLUMN job_title_clean TEXT;
+
+UPDATE cleaned_salaries
+SET
+    job_title_clean = LOWER(job_title);
+
+-- is remote
+ALTER TABLE cleaned_salaries
+ADD COLUMN is_remote BOOLEAN;
+
+UPDATE cleaned_salaries
+SET
+    is_remote = remote_ratio = 100;
