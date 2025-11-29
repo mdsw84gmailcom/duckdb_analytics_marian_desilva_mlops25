@@ -13,6 +13,16 @@ FROM
     cleaned_salaries;
 
 -- c) Find out how many jobs that goes into each salary level.
+SELECT
+    salary_level,
+    COUNT(*) AS count
+FROM
+    cleaned_salaries
+GROUP BY
+    salary_level
+ORDER BY
+    count DESC;
+
 -- d) Find out the median and mean salaries for each seniority levels.
 -- e) Find out the top earning job titles based on their median salaries and how much they earn.
 -- f) How many percentage of the jobs are fully remote, 50 percent remote and fully not remote.
