@@ -78,3 +78,11 @@ ADD COLUMN salary_annual_sek DOUBLE;
 UPDATE cleaned_salaries
 SET
     salary_annual_sek = salary_in_usd * 11;
+
+-- monthly salary
+ALTER TABLE cleaned_salaries
+ADD COLUMN salary_monthly_sek DOUBLE;
+
+UPDATE cleaned_salaries
+SET
+    salary_monthly_sek = salary_annual_sek / 12;
