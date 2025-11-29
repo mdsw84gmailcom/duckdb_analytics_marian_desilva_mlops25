@@ -114,3 +114,16 @@ ADD COLUMN is_remote BOOLEAN;
 UPDATE cleaned_salaries
 SET
     is_remote = remote_ratio = 100;
+
+-- experience levels
+ALTER TABLE cleaned_salaries
+ADD COLUMN experience_level_clean TEXT;
+
+UPDATE cleaned_salaries
+SET
+    experience_level_clean = CASE
+        WHEN experience_level = 'EN' THEN 'Entry'
+        WHEN experience_level = 'MI' THEN 'Mid'
+        WHEN experience_level = 'SE' THEN 'Senior'
+        WHEN experience_level = 'EX' THEN 'Executive'
+    END;
