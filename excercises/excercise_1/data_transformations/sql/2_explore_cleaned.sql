@@ -49,5 +49,20 @@ LIMIT
     10;
 
 -- f) How many percentage of the jobs are fully remote, 50 percent remote and fully not remote.
+SELECT
+    remote_ratio,
+    COUNT(*) * 100.0 / (
+        SELECT
+            COUNT(*)
+        FROM
+            cleaned_salaries
+    ) AS percentage
+FROM
+    cleaned_salaries
+GROUP BY
+    remote_ratio
+ORDER BY
+    remote_ratio DESC;
+
 -- g) Pick out a job title of interest and figure out if company size affects the salary. Make a simple analysis as a comprehensive one requires causality investigations which are much harder to find.
 -- h) Feel free to explore other things
