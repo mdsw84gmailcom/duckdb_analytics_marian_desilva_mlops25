@@ -28,3 +28,27 @@ SELECT
     TRIM(example) AS example_clean
 FROM
     staging.sql_terms_raw;
+
+-- Find all terms containing the word "join"
+SELECT
+    *
+FROM
+    refined.sql_terms_clean
+WHERE
+    term_clean LIKE '%join%';
+
+-- Find descriptions that mention the word "table"
+SELECT
+    *
+FROM
+    refined.sql_terms_clean
+WHERE
+    description_clean ILIKE '%table%';
+
+-- Find examples containing a WHERE clause
+SELECT
+    *
+FROM
+    refined.sql_terms_clean
+WHERE
+    example_clean ILIKE '%where%';
