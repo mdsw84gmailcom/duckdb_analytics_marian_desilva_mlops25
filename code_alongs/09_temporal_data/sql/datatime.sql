@@ -1,0 +1,89 @@
+/* ================
+Check data types 
+================ */
+-- check column data types of the generated tables
+-- you can also check the icon next to the column names for the data types
+-- note that different database systems have different data types to store temporal data
+desc staging.sweden_holidays;
+
+-- has DATE columns
+/* ===============
+Date/Timestamp 
+operators 
+=============== */
+from
+    staging.sweden_holidays;
+
+-- addition and subtraction of days
+select
+    Date,
+    Date + interval 5 day
+from
+    staging.sweden_holidays;
+
+select
+    Date,
+    Date - interval 5 day
+from
+    staging.sweden_holidays;
+
+-- the new column is of TIMESTAMP data type
+desc
+select
+    Date,
+    Date - interval 5 day
+from
+    staging.sweden_holidays;
+
+/* ==============
+Date functions 
+============== */
+-- show today
+select
+    today ();
+
+-- show difference between two dates
+select
+    *,
+    today () as Today,
+    date_diff ('day', Date, Today) as Days_Diff
+from
+    staging.sweden_holidays;
+
+-- show the weekday
+select
+    Date,
+    dayname (Date) as Weekday_Name
+from
+    staging.sweden_holidays;
+
+-- pick the latest from two dates
+select
+    *,
+    today () as Today,
+    greatest (Date, Today) as Later_Day
+from
+    staging.sweden_holidays;
+
+-- convert date to string
+select
+    Date,
+    strftime (Date, '%d/%m/%Y') as Date_String
+from
+    staging.sweden_holidays;
+
+-- convert string to date
+SELECT
+    date,
+    strftime (date, '%d/%m/%Y') as date_string,
+    typeof (date_string),
+    strptime (date_string, '%d/%m/%Y')::DATE as new_date,
+    typeof (new_date)
+FROM
+    staging.sweden_holidays;
+
+-- convert string to timestamp
+select 
+	Date,
+	strptime('2025-12-31', '%Y-%m-%d') as Date_Timestamp
+from staging.sweden_holidays;
