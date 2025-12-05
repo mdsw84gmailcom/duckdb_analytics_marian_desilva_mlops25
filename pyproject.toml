@@ -14,4 +14,5 @@ dependencies = [
 [tool.uv.workspace]
 members = [
     "code_alongs/18_pandas_duckdb",
+    "code_alongs/19_dlt",
 ]
